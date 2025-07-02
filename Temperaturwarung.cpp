@@ -50,6 +50,18 @@ enum class IceWarning {
   Invalid,
 };
 
+/*
+* IceWarning -> std::string
+* Die Eingabe IceWarning soll einen String ausgeben
+
+ * Warnmeldung (Zeichenkette): std::string
+ *   Gültiger Wertebereich: {"Glatteis", ""}
+
+* Wenn Warnung, dann string = Glatteis
+* Wenn NoWarning, dann string = ""
+* Wenn Invaid, dann string = ""
+*/
+
 
 /*
  * 2. Schnittstellendefinition:
@@ -74,6 +86,30 @@ enum class IceWarning {
  *
  */
 // IceWarning ice_warning(int temperature) {}
+std::string ice_warning_to_string(IceWarning warning)  {
+  if (warning == IceWarning::Warning) {
+    return "Glatteis";
+  } else {
+    "";
+  }
+}
+
+
+
+/*
+IceWarning ice_warning(int temperature) {
+  if (temperature < -40) {
+    return IceWarning::Invalid;
+  } else if (temperature <= 4) {
+    return IceWarning::Warning;
+  } else if (temperature < 61) {
+    return IceWarning::NoWarning;
+  } else {
+    return IceWarning::Invalid;
+  }
+}
+  */
+
 
 /*
  * 3. Funktionale Beispiele:
@@ -90,6 +126,16 @@ enum class IceWarning {
  * IceWarning warning7 = ice_warning(61) // IceWarning::Invalid
  *
  */
+
+
+ /*
+ * std::string warning_string1 = ice_warning_to_string(IceWarning::Warning)   // string: "Glatteis"
+ * std::string warning_string2 = ice_warning_to_string(IceWarning::NoWarning) // string: ""
+ * std::string warning_string3 = ice_warning_to_string(IceWarning::Invalid)   string: ""
+ */ 
+
+
+
 
 /*
  * 4. Funktionsvorlage:
@@ -110,6 +156,7 @@ enum class IceWarning {
  * Nutze dabei die Zweckdefinition und die Beispiele.
  *
  */
+ /*
 IceWarning ice_warning(int temperature) {
   if (temperature < -40) {
     return IceWarning::Invalid;
@@ -121,6 +168,8 @@ IceWarning ice_warning(int temperature) {
     return IceWarning::Invalid;
   }
 }
+*/
+
 
 /*
  * 6. Testen:
@@ -132,6 +181,7 @@ IceWarning ice_warning(int temperature) {
  *
  */
 
+ 
 struct stimulus_response_t {
   int stimulus;
   IceWarning response;
