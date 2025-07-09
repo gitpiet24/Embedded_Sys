@@ -100,7 +100,9 @@ int main() {
     {1900, false },
     {2024, true }, 
     {1943, false },
-    {2025, true}  
+    {2025, true},
+    {0,false},
+    {0,true} 
   };
 
 
