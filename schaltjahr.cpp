@@ -4,7 +4,7 @@
  * Identifiziere die Informationen, die dargestellt werden müssen, und lege fest
  * wie sie in der gewählten Programmiersprache als Daten repräsentiert werden.
  *
- ** Eingabewert: "Jahreszahl" -> Nur positive ganzzahlige Zahlen
+ ** Eingabewert: "Jahreszahl" -> Positive ganzzahlige Zahlen
  ** Ausgabewert: "IstSchaltjahr" -> Boolean "0": Kein Schaltjahr, "1" Schaltjahr 
  */
 
@@ -19,21 +19,33 @@
  * Formuliere eine prägnante Antwort auf die Frage, was die Funktion berechnet.
  *
  ** Funktion soll bewerten ob die eingegebene Jahreszahl ein Schaltjahr ist oder nicht.
- ** 
-
-
+ * 
  * Welche Wertebereiche der Ein- und Ausgaben sind gültig, welche ungültig und
  * wie verhält sich die Funktion bei ungültiger Eingabe?
  *
+ ** Eingabe: Positive ganzzahlige Zahlen größer 0
+ ** Rückgabewert: Boolean "false": Kein Schaltjahr, "true" Schaltjahr 
+ *
  * Definiere ein Funktionsgerüst, das zur Signatur passt.
  *
+ ** Name der Funktion: Ist_Schaltjahr
+ ** Parameter: Jahreszahl(), Rückgabewert(bool)
  */
+
+
 
 /*
  * 3. Funktionale Beispiele:
  *
  * Erarbeite konkrete Beispiele für Funktions-Ein- und Ausgaben, die den Zweck
  * der Funktion verdeutlichen.
+
+ ** Eingabe Jahreszahl, Ausgabe
+ ** (400, true)
+ ** (1, false)
+ ** (1900, false)
+ ** (2024, true)
+ ** (1943, false)
  *
  */
 
@@ -42,8 +54,13 @@
  *
  * Übertrage die Datendefinitionen in einen Entwurf der Funktion, der zunächst
  * lediglich einen trivialen Wert zurückliefert.
- *
  */
+
+
+bool Ist_Schaltjahr(unsigned int Jahreszahl) {    
+    return Jahreszahl % 400 == 0 || (Jahreszahl % 4 == 0 && Jahreszahl % 100 != 0);
+}
+
 
 /*
  * 5. Funktionsdefinition:
