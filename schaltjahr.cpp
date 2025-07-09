@@ -1,3 +1,5 @@
+#include <vector>
+#include <iostream>
 /*
  * 1. Von der Problemanalyse zur Datendefinition:
  *
@@ -57,11 +59,6 @@
  */
 
 
-bool Ist_Schaltjahr(unsigned int Jahreszahl) {    
-    return Jahreszahl % 400 == 0 || (Jahreszahl % 4 == 0 && Jahreszahl % 100 != 0);
-}
-
-
 /*
  * 5. Funktionsdefinition:
  *
@@ -71,6 +68,10 @@ bool Ist_Schaltjahr(unsigned int Jahreszahl) {
  *
  */
 
+bool Ist_Schaltjahr(unsigned int Jahreszahl) {    
+    return Jahreszahl % 400 == 0 || (Jahreszahl % 4 == 0 && Jahreszahl % 100 != 0);
+}
+
 /*
  * 6. Testen:
  *
@@ -78,9 +79,38 @@ bool Ist_Schaltjahr(unsigned int Jahreszahl) {
  * alle Tests besteht.
  *
  * So entdeckst du Fehler.
+ ** Eingabe Jahreszahl, Ausgabe
+ ** (400, true)
+ ** (1, false)
+ ** (1900, false)
+ ** (2024, true)
+ ** (1943, false)
  *
  */
 
+struct schaltjahr_test {
+ unsigned int stimulus;
+ bool response;
+}; 
+
 int main() {
+  std::vector<schaltjahr_test> testfaelle{
+    {400, true }, 
+    {1, false },
+    {1900, false },
+    {2024, true }, 
+    {1943, false }  
+  };
+
+
+  for (schaltjahr_test testfall:testfaelle){
+    if (Ist_Schaltjahr(testfall.stimulus) == testfall.response) {
+      std:cout << "Testfall OK!";
+    }
+    else {
+      std:cout << "Testfall nicht OK!";
+    }
+  }
+
   return 0;
 }
