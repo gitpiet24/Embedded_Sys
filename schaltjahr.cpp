@@ -99,18 +99,19 @@ int main() {
     {1, false },
     {1900, false },
     {2024, true }, 
-    {1943, false }  
+    {1943, false },
+    {2025, true}  
   };
 
 
   for (schaltjahr_test testfall:testfaelle){
     if (Ist_Schaltjahr(testfall.stimulus) == testfall.response) {
-      std:cout << "Testfall OK!";
+      std::cout << "Testfall OK!";
     }
     else {
-      std:cout << "Testfall nicht OK!";
+      std::cout << "Testfall nicht OK!";
     }
+    std::cout << "\n";
   }
-
   return 0;
 }
